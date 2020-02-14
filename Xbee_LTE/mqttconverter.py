@@ -6,7 +6,8 @@ import binascii
 import time
 import sys
 MESSAGE_LENGTH = 15
-MQTT_SERVER = 'hytech-telemetry.ryangallaway.me'     # MQTT broker hostname
+MQTT_SERVER = 'ec2-3-134-2-166.us-east-2.compute.amazonaws.com'
+# MQTT_SERVER = 'hytech-telemetry.ryangallaway.me'     # MQTT broker hostname
 MQTT_PORT = 1883                    # MQTT broker port (non-SSL)
 connectedLight = Pin("D0", Pin.OUT, value=1)
 def create_client():
@@ -14,7 +15,7 @@ def create_client():
     c = MQTTClient('hytech_car', MQTT_SERVER, MQTT_PORT)
     while True:
         _ = sys.stdin.buffer.read(-1) # pull stuff off the buffer so it doesn't crash
-        try: 
+        try:
             print('attempting to connect...')
             c.connect()
             print('connected to MQTT broker')
