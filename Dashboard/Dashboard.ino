@@ -64,6 +64,10 @@ MCP_CAN CAN(SPI_CS);
 Dashboard_status dashboard_status;
 MCU_status mcu_status;
 
+inline void led_update();
+inline void read_can();
+inline void btn_update();
+
 void setup() {
   pinMode(BTN_MARK, INPUT_PULLUP);
   pinMode(BTN_MODE, INPUT_PULLUP);
